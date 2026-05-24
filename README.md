@@ -80,7 +80,7 @@ src/
 Clone the repository:
 
 ```bash
-git clone <your-repository-link>
+git clone https://github.com/chouglesafdar22/VedaAI_Assignments.git
 ```
 
 Install dependencies:
