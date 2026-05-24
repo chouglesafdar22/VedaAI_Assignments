@@ -1,65 +1,84 @@
+"use client";
+import SideBar from "@/components/layout/SideBar";
+import Navbar from "@/components/layout/Navbar";
+import BottomNavbar from "@/components/layout/BottomNavbar";
+import MoblieNavbar from "@/components/layout/MoblieNavbar";
 import Image from "next/image";
+import Filter from "@/components/Filter";
+import AssignmentCard from "@/components/AssignmentCard";
+import { FaArrowLeft } from "react-icons/fa6";
+
+const assignments = [
+  {
+    id: 1, assName: "CS", assignedDate: "20-5-26", dueDate: "21-5-26"
+  },
+  {
+    id: 2, assName: "VedaAI Hiring Assignments", assignedDate: "22-05-26", dueDate: "24-5-26"
+  }
+]
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-linear-to-b from-[#EEEEEE] to-[#DADADA]">
+      <div className="flex w-full h-full">
+        <SideBar />
+        <div className="flex flex-col flex-1 lg:p-4 p-0 gap-4">
+          <Navbar />
+          <MoblieNavbar />
+          <div className="flex flex-col w-full min-h-screen lg:min-h-0 gap-2 pt-28 pb-28">
+            {assignments.length === 0 ? (
+              <div className="flex flex-col justify-center items-center w-full flex-1 gap-6 px-4">
+                <div className="flex flex-col justify-center items-center w-auto h-auto gap-3">
+                  <Image
+                    src={"/Images/Illustrations.png"}
+                    alt="Illustration"
+                    width={150}
+                    height={150}
+                    className="lg:w-75 lg:h-75 w-45 h-45"
+                  />
+                  <div className="flex flex-col justify-center items-center max-w-121.5 w-full gap-1">
+                    <h2 className="bricolage-grotesque-bold lg:text-xl text-base leading-[140%] tracking-[0.04em] align-middle text-center text-[#303030]">No Assignment yet</h2>
+                    <p className="bricolage-grotesque-regular lg:text-base text-xs leading-[140%] tracking-[0.04em] text-center align-middle text-[#5E5E5E]/80 wrap-break-word">Create your first assignment to start collecting and grading student submissions. You can set up rubrics, define marking criteria, and let AI assist with grading.</p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col w-full h-auto px-2 gap-4">
+                <div className="lg:flex hidden items-center w-auto h-auto gap-3">
+                  <span className="flex lg:w-3 w-1.5 lg:h-3 h-1.5 rounded-full border-4 bg-[#4BC26D] border-[#4BC26D]/40 shadow-[0_32px_48px_rgba(0,0,0,0.2),0_16px_48px_rgba(0,0,0,0.12)]"></span>
+                  <div className="flex items-start text-center flex-col w-auto h-auto gap-0.5">
+                    <h3 className="bricolage-grotesque-bold lg:text-xl text-base leading-[140%] tracking-[0.04em] text-center align-middle text-[#303030]">Assignments</h3>
+                    <p className="bricolage-grotesque-regular lg:text-sm text-xs eading-[140%] tracking-[0.04em] lg:text-center text-left align-middle text-[#5E5E5E]/55 line-clamp-2">Manage and create assignments for your classes.</p>
+                  </div>
+                </div>
+                <div className="lg:hidden flex w-full h-auto">
+                  <span className="flex justify-center items-center w-12 h-12 rounded-full bg-white/25 backdrop-blur-xl">
+                    <FaArrowLeft className="text-base bricolage-grotesque-medium text-[#303030]" />
+                  </span>
+                  <div className="flex justify-center w-full items-center">
+                    <h3 className="bricolage-grotesque-bold lg:text-xl text-base leading-[140%] tracking-[0.04em] text-center align-middle text-[#303030]">Assignments</h3>
+                  </div>
+                </div>
+                <Filter />
+                <div className="grid lg:grid-cols-2 grid-cols-1 w-full px-2.5 gap-4 justify-center items-center">
+                  {
+                    assignments.map((ass) => (
+                      <AssignmentCard
+                        key={ass.id}
+                        id={ass.id}
+                        assName={ass.assName}
+                        assignedDate={ass.assignedDate}
+                        dueDate={ass.dueDate}
+                      />
+                    ))
+                  }
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+      <BottomNavbar />
+    </main>
   );
-}
+};

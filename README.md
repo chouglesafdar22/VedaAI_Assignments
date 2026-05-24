@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VedaAI - Assignment Dashboard
 
-## Getting Started
+A modern and responsive Assignment Dashboard UI built using Next.js, TypeScript, and Tailwind CSS based on the provided Figma designs.
 
-First, run the development server:
+## Overview
+
+This project is a frontend implementation of the VedaAI Assignment Dashboard.
+
+The application includes:
+- Responsive dashboard layout
+- 0 State Screen (No Assignments)
+- Filled State Screen (Assignments Available)
+- Desktop & Mobile Navigation
+- Reusable Component Architecture
+
+---
+
+## Tech Stack
+
+### Frontend
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+### UI & Icons
+- React Icons
+- Next/Image
+
+---
+
+## Features
+
+- Responsive UI for Desktop & Mobile
+- Sidebar Navigation
+- Mobile Navbar
+- Bottom Navigation Bar
+- Assignment Cards
+- Search & Filter UI
+- Reusable Components
+- Clean Component Structure
+
+---
+
+## Screens Implemented
+
+### 1. 0 State Screen
+Displays empty state when no assignments are available.
+
+### 2. Filled State Screen
+Displays assignment cards with fake/static data.
+
+---
+
+## Folder Structure
+
+```bash
+src/
+│
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│
+├── components/
+│   ├── layout/
+│   │   ├── SideBar.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── MoblieNavbar.tsx
+│   │   ├── BottomNavbar.tsx
+│   │   ├── Button.tsx
+│   │   ├── Menu.tsx
+|   |
+|   ├── Filter.tsx
+|   ├── AssignmentCard.tsx
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <your-repository-link>
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is deployed using Vercel.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- This project mainly focuses on frontend implementation and responsive UI.
+- Static/fake data has been used for assignment cards.
+- Components are designed to be reusable and scalable.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Safdar Chougle
+Full Stack / MERN Stack Developer
